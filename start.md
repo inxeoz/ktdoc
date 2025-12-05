@@ -45,13 +45,13 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 
 ### Installing Packges
 
-1. ```sudo apt update``` ***update packges**
+1. ```sudo apt update``` ***update packges***
 
 2. ```sudo apt install git python-is-python3 python3-dev python3-pip redis-server libmariadb-dev mariadb-server mariadb-client pkg-config``` ***install required services***
 
 3. ```sudo apt install xvfb libfontconfig```
 
-4. ```sudo mariadb-secure-installation`` ***it will ask for root password to authorize and ask for new-password for mariadb (if you have not setup this before)***
+4. ```sudo mariadb-secure-installation``` ***it will ask for root password to authorize and ask for new-password for mariadb (if you have not setup this before)***
 
 5. Install Node and Yarn (https://nodejs.org/en/download)
 
