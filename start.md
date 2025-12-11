@@ -120,20 +120,87 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 
 ### Bench Commands
 
-```bench init```
+---
 
-```bench start```
+**```bench init bench_name```**
 
-```bench build```
+this commands create bench configuration and folder containing it
 
-```bench new-site sitename```
+---
 
-```bench new-app customapp```
+**```bench new-site sitename```**
 
-```bench drop-site sitename```
+creates new site and a site can have multiple selected apps and each site configuration and data does not cross
 
-```bench uninstall-app appname```
+---
 
-```bench get-app app_name``` ***replace app_name with frappe official apps like erpnext or non_profit, or if you have developed your own custom app then put custom app github url***
+**```bench use sitename```**
 
-```bench install-app app_name``` ***to install app in site , you can use ```--site sitename``` to specify site***
+to set default site from list of sites 
+
+---
+
+**```bench start```**
+
+to start site , it starts frappe backend and frontend 
+
+---
+
+**```bench build```**
+
+to generate assets of site , apps that frappe will serve
+
+---
+
+**``bench get-app app_name``**
+
+to get frappe official product application i.e. (erpnext, hrms, wiki)  
+
+to get custom application use
+
+**```bench get-app github_repo_url```**
+
+---
+
+**``bench install-app app_name``**
+
+to install app into site , use --site site_name to specify site where app will be installed
+
+---
+
+**```bench new-app customapp```**
+
+to create custom app (where you can define , custom doctype and control apis)
+
+---
+
+**```bench drop-site sitename```**
+
+to remove site  (be cautious it will delete all data related to site)
+
+---
+
+**```bench uninstall-app appname```**
+
+to uninstall app from site , you can use --site sitename
+
+---
+
+**``bench export-fixtures``**
+
+to export configurations and records for doctypes
+
+you have to define what need to export using ``frappe-bench/apps/app_name/module_name/hooks.py``
+
+running command will generate fixtures folder ``frappe-bench/apps/app_name/module_name/fixtures``
+
+fixtures folder will contain json files for each records and configuration
+
+---
+
+**``bench migrate``**
+
+to restore data and configuration that is inside fixtures folder ``frappe-bench/apps/app_name/module_name/fixtures``
+
+---
+
