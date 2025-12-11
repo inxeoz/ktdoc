@@ -36,41 +36,47 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **devoteee_login (Phone, otp)** 
 >
-> 1. Creates Devoteee record (if Not exist) with phone
-> 2. Verifies and return jwt token
+> * Creates Devoteee record (if Not exist) with phone
+>
+> * Verifies and return jwt token
 
 > **google_login(google_token)**
 >
-> 1. Creates Devoteee record (if Not exist) with email
-> 2. Verifies and return jwt token
+> * Creates Devoteee record (if Not exist) with email
+>
+> * Verifies and return jwt token
 
 > **profile()**
 >
-> 1. returns the profile details
+> * returns the profile details
 
 > **update_profile(field1, field2, ..)**
 >
-> 1. updates the profile and returns **profile()**
-> 2. Does not update phone or email
+> * updates the profile and returns **profile()**
+>
+> * Does not update phone or email
 
 > **update_cred(phone, email) **
 >
-> 1. updates phone and email after otp verification for each (**phone**, **email**)
-> 2. returns **profile()**
+> * updates phone and email after otp verification for each (**phone**, **email**)
+>
+> * returns **profile()**
 
 > **companion() **
 >
-> 1. returns companion details **Table**
+> * returns companion details **Table**
 
 > **add_companion(companion_name, age, gender) **
 >
-> 1. add companion
-> 2. returns **companion()**
+> * add companion
+>
+> * returns **companion()**
 
 > **remove_companion(companion_id) **
 >
-> 1. removes companion row which has **companion_id**
-> 2. returns **companion()**
+> * removes companion row which has **companion_id**
+>
+> * returns **companion()**
 
 ---
 
@@ -86,37 +92,39 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **attender_login (phone,otp)**
 >
-> 1. Verifies and return jwt token
+> * Verifies and return jwt token
 
 > **profile()**
 >
-> 1. returns the profile details
+> * returns the profile details
 
 > **update_profile(field1, field2, ..)**
 >
-> 1. updates the profile and returns **profile()**
-> 2. Does not update phone or email
-
-> **update_cred(phone, email) **
+> * updates the profile and returns **profile()**
 >
-> 1. updates phone and email after otp verification for each (**phone**, **email**)
-> 2. returns **profile()**
+> * Does not update phone or email
+
+> **update_cred( email) **
+>
+> * updates phone and email after otp verification (**email**)
+>
+> * returns **profile()**
 
 > **get_list_of_available_attender(slot_date, slot) **
 >
-> 1. returns list of unassigned attender on **slot_date**, **slot**
+> * returns list of unassigned attender on **slot_date**, **slot**
 
 > **mark_exit(appointment_id)**
 >
-> 1. marks exit if appointment's devoteee have completed darshan
+> * marks exit if appointment's devoteee have completed darshan
 
-> **get_attender_appointment_details(appointment_id)**
+> **get_appointment_details(appointment_id)**
 >
-> 1. returns basic details of appointment
+> * returns basic details of appointment
 
-> **get_attender_appointment_list(field1, field2, ...)**
+> **get_appointment_list(field1, field2, ...)**
 >
-> 1. returns list of appointment which assigned to attender
+> * returns list of appointment which assigned to attender
 
 ---
 
@@ -132,29 +140,31 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **approver_login (phone,otp)**
 >
-> 1. Verifies and return jwt token
+> * Verifies and return jwt token
 
 > **profile()**
 >
-> 1. returns the profile details
+> * returns the profile details
 
 > **update_profile(field1, field2, ..)**
 >
-> 1. updates the profile and returns **profile()**
-> 2. Does not update phone or email
-
-> **update_cred(phone, email) **
+> * updates the profile and returns **profile()**
 >
-> 1. updates phone and email after otp verification for each (**phone**, **email**)
-> 2. returns **profile()**
+> * Does not update phone or email
+
+> **update_cred(email) **
+>
+> * updates phone and email after otp verification for (**email**)
+>
+> * returns **profile()**
 
 > **approve_vip_appointment(appointment_id, action ) **
 >
-> 1. applies action of appointment
+> * applies action of appointment
 
 > **list_of_vip_appointments(filter1, filter2, filter3, ...)**
 >
-> 1. returns list of appointment applying filter
+> * returns list of appointment applying filter
 
 ---
 
@@ -174,7 +184,7 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **create_appointment(slot_date, slot, protocol,state,companion devoteee_id ) **
 >
-> 1. create appointment and returns appointment name
+> * create appointment and returns appointment name
 
 ---
 
@@ -208,7 +218,7 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **get_protocol_list()**
 >
-> 1. returns list of protocol along with other related details
+> * returns list of protocol along with other related details
 
 ---
 
@@ -220,7 +230,7 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **get_slot_info(slot_name)**
 >
-> 1. returns the details for that **slot_name**
+> * returns the details for that **slot_name**
 
 ---
 
@@ -238,7 +248,7 @@ Customer <=> Client <=> Devoteee <=> User
 
 > **vip_darshan_slot_info(slot_date)**
 >
-> 1. returns map (slot => current_capacity) on that slot_date
+> * returns map (slot => current_capacity) on that slot_date
 
 ---
 
