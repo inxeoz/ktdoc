@@ -118,7 +118,7 @@ https://learn.microsoft.com/en-us/windows/wsl/install
 
    visit http://127.0.0.1:8000
 
-### Bench Commands
+### Basic Bench Commands
 
 ---
 
@@ -201,6 +201,14 @@ fixtures folder will contain json files for each records and configuration
 **``bench migrate``**
 
 to restore data and configuration that is inside fixtures folder ``frappe-bench/apps/app_name/module_name/fixtures``
+
+---
+
+**``bench set-config config_name config_value``**
+
+to set config like ``bench set-config developer_mode 1`` or ``bench set-config server_script_enabled true```
+
+you can use ``-g`` to set globally
 
 ---
 
