@@ -6,13 +6,13 @@ Booking System for Mahakaal Darshan and similar entity (i.e **Omkareshwar Temple
 
 > provide easy booking of darshan slots
 
-> Role Management (Devoteee, Attender, Approver)
+> Role Management (Devoteee, Attender, Approver, Admin)
 
 > Integration with erpnext modules ( i.e Hrms , Non_profit, CRM)
 
 > Allows Vip Darshan Booking
 
-> Login With Mobile and Google Auth
+> Login With Mobile and Google Auth for devoteee
 
 > integration with payment system
 

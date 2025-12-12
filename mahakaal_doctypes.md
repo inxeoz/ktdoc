@@ -50,7 +50,9 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns the profile details
 
-> **update_profile(field1, field2, ..)**
+> **update_profile(fields)**
+>
+> * **fields: [dob, name, location]**
 >
 > * updates the profile and returns **profile()**
 >
@@ -66,7 +68,9 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns companion details **Table**
 
-> **add_companion(companion_name, age, gender) **
+> **add_companion(fields) **
+>
+> * **fields: [companion_name, age, gender, phone ]**
 >
 > * add companion
 >
@@ -77,6 +81,35 @@ Customer <=> Client <=> Devoteee <=> User
 > * removes companion row which has **companion_id**
 >
 > * returns **companion()**
+
+> **create_appointment(fields) **
+>
+> * **fields: [type, slot_date, slot, list_of_companion, *protocol, state]**
+>
+> * creates **Darshan Appointment **in draft state
+>
+> * returns appointment id
+
+> **update_appointment(appointment_id, fields) **
+>
+> * **fields: [slot_date, slot, list_of_companion, *protocol, state]**
+> * updates appointment for **appointment_id** only if appointment is in pending state
+> * returns acknowledgement
+
+> **submit_appointment(appointment_id) **
+>
+> * checks whether payment done for appointment
+> * if payment done then submits the appointment for verification
+> * returns acknowledgement
+
+> **get_appointments(filters) **
+>
+> * **filters : [type, state, slot_date]**
+> * returns list of appointments
+
+> **get_appointment(appointment_id) **
+>
+> * returns details of appointment for **appointment_id**
 
 ---
 
@@ -98,7 +131,9 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns the profile details
 
-> **update_profile(field1, field2, ..)**
+> **update_profile(fields)**
+>
+> * **fields: [ name, location, dob]**
 >
 > * updates the profile and returns **profile()**
 >
@@ -110,21 +145,23 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns **profile()**
 
-> **get_list_of_available_attender(slot_date, slot) **
+> **get_appointments(filters)**
 >
-> * returns list of unassigned attender on **slot_date**, **slot**
+> * **filters: [slot_date, slot,protocol, exited?]**
+> * returns list of appointment which assigned to attender applying filters 
+
+> **get_appointments_today(filters)**
+>
+> * **filters: [slot_date, slot,protocol, exited?]**
+> * returns **get_appointments(slot_date=today, filters)**
+
+> **get_appointment(appointment_id)**
+>
+> * returns details of appointment which assigned to attender , specific for attender
 
 > **mark_exit(appointment_id)**
->
+
 > * marks exit if appointment's devoteee have completed darshan
-
-> **get_appointment_details(appointment_id)**
->
-> * returns basic details of appointment
-
-> **get_appointment_list(field1, field2, ...)**
->
-> * returns list of appointment which assigned to attender
 
 ---
 
@@ -146,7 +183,9 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns the profile details
 
-> **update_profile(field1, field2, ..)**
+> **update_profile(fields)**
+>
+> * **fields:[name, dob, location]**
 >
 > * updates the profile and returns **profile()**
 >
@@ -158,12 +197,21 @@ Customer <=> Client <=> Devoteee <=> User
 >
 > * returns **profile()**
 
-> **approve_vip_appointment(appointment_id, action ) **
+> **get_list_of_available_attender(slot_date, slot) **
+>
+> * returns list of unassigned attender on **slot_date**, **slot**
+
+> **approve_appointment(appointment_id ) **
 >
 > * applies action of appointment
 
-> **list_of_vip_appointments(filter1, filter2, filter3, ...)**
+> **reject_appointment(appointment_id ) **
 >
+> * applies action of appointment
+
+> **get_appointments(filters)**
+>
+> * **filters:[slot_date, escort_person, slot, protocol, state, workflow_state, phone, email, devoteee_id, devoteee_name]**
 > * returns list of appointment applying filter
 
 ---
@@ -180,12 +228,6 @@ Customer <=> Client <=> Devoteee <=> User
 
 ``state``, ``escort_person``, ``group_size``,``slot_date``
 
-#### Api Points
-
-> **create_appointment(slot_date, slot, protocol,state,companion devoteee_id ) **
->
-> * create appointment and returns appointment name
-
 ---
 
 ### Vip Darshan Appointment Table
@@ -201,12 +243,14 @@ Customer <=> Client <=> Devoteee <=> User
 > Single Doctype
 >
 > To configure slot for vip darshan like **capacity** and **slot ** (from Slot)
+>
+> Admin can configure this
 
 #### Api Points
 
-> **get_static_vip_darshan_slot_info()**
+> **get_slot_info(slot_type)**
 >
-> 1. returns the configuration of slot for vip darshan 
+> * returns the configuration of slot **slot_type** i.e vip darshan , bhasm arti
 
 ---
 
